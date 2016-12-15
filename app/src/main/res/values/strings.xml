@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">WakeUp</string>
+    <string name="vstopna">Vpisi vstopno postajo</string>
+    <string name="izstopna">Vpisi izstopno postajo</string>
+
+    <string-array name="postaje">
+        <item>Kamnik AP</item>
+        <item>Kamnik duplica</item>
+        <item>Kamnik svetilnik</item>
+        <item>Koper</item>
+        <item>Kranj</item>
+        <item>Ljubljana</item>
+        <item>Maribor</item>
+    </string-array>
+</resources>
