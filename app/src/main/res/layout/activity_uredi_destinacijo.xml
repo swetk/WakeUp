@@ -31,11 +31,11 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/iztopnaPostaja"
-        android:layout_centerHorizontal="true"
         android:id="@+id/spinnerDnevi"
         android:spinnerMode="dialog"
-
-        />
+        android:entries="@array/postaje"
+        android:layout_below="@+id/iztopnaPostaja"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
