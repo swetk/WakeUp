@@ -273,6 +273,11 @@
         <item>Žalec </item>
         <item>Žalna </item>
         <item>Žirovnica</item>
+    </string-array>
 
+    <string-array name="ure">
+        <item>5 min</item>
+        <item>10 min</item>
+        <item>15 min</item>
     </string-array>
 </resources>
