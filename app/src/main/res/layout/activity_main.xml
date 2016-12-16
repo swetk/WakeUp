@@ -6,12 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.sveval.wakeup.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:layout_below="@+id/tool_bar"/>
-
     <include
         android:id="@+id/tool_bar"
         layout="@layout/tool_bar"

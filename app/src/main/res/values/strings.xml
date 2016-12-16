@@ -3,6 +3,7 @@
     <string name="vstopna">Vpisi vstopno postajo</string>
     <string name="izstopna">Vpisi izstopno postajo</string>
     <string name="button_new">Novo</string>
+    <string name="strigDnevi">Izberi dneve: </string>
 
     <string-array name="postaje">
         <item>Ajdovščina</item>
@@ -280,4 +281,15 @@
         <item>10 min</item>
         <item>15 min</item>
     </string-array>
+
+    <string-array name="dnevi">
+        <item>Ponedeljek</item>
+        <item>Torek</item>
+        <item>Sreda</item>
+        <item>Četrtek</item>
+        <item>Petek</item>
+        <item>Sobota</item>
+        <item>Nedelja</item>
+    </string-array>
+
 </resources>
