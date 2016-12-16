@@ -3,7 +3,6 @@
     <string name="vstopna">Vpisi vstopno postajo</string>
     <string name="izstopna">Vpisi izstopno postajo</string>
     <string name="button_new">Novo</string>
-    <string name="test">Novo</string>
 
     <string-array name="postaje">
         <item>Ajdovščina</item>
