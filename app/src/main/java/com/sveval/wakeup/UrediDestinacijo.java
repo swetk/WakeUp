@@ -37,4 +37,8 @@ public class UrediDestinacijo extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void koncajDestinacijo (View view) {
+
+    }
 }

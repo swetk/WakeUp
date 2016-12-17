@@ -57,7 +57,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:id="@+id/buttonKoncaj"
-        tools:ignore="RelativeOverlap" />
+        tools:ignore="RelativeOverlap"
+        android:onClick="koncajDestinacijo"/>
 
     <Button
         android:text="@string/buttonPreklici"
