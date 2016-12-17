@@ -8,6 +8,5 @@
 
     <include
         android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"
-        ></include>
+        layout="@layout/tool_bar"></include>
 </RelativeLayout>
