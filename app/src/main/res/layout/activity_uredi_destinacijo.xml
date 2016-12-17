@@ -29,35 +29,44 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <TextView
+        android:text="@string/textViewUra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewUre"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/iztopnaPostaja"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spinnerUre"
         android:spinnerMode="dialog"
         android:entries="@array/ure"
+        android:layout_below="@+id/textViewUre"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="@string/buttonKoncaj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/buttonKoncaj"
+        tools:ignore="RelativeOverlap" />
+
+    <Button
+        android:text="@string/buttonPreklici"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="96dp" />
-
-    <TextView
-        android:text="@string/strigDnevi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/iztopnaPostaja"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
-        android:id="@+id/dnevi" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/dnevi"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="7dp"
-        android:id="@+id/spinnerDnevi"
-        android:entries="@array/dnevi"/>
+        android:id="@+id/buttonPreklici"
+        android:onClick="getBackMain"/>
 
 </RelativeLayout>
