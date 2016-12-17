@@ -1,7 +1,8 @@
 package com.sveval.wakeup;
 
+import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,9 +12,6 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
-import android.widget.TextView;
-
-import android.view.ViewGroup.LayoutParams;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,22 +19,23 @@ import java.util.Random;
 
 public class UrediDestinacijo extends AppCompatActivity {
 
-    AutoCompleteTextView autoCompleteTextView;
+    AutoCompleteTextView autoCompleteTextViewVstopna;
+    AutoCompleteTextView autoCompleteTextViewIztop;
     String[] imenaPostaj;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uredi_destinacijo);
 
-        autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.vstopnaPostaja);
+        autoCompleteTextViewVstopna = (AutoCompleteTextView) findViewById(R.id.vstopnaPostaja);
         imenaPostaj = getResources().getStringArray(R.array.postaje);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,imenaPostaj);
-        autoCompleteTextView.setAdapter(adapter);
+        autoCompleteTextViewVstopna.setAdapter(adapter);
 
-        autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.iztopnaPostaja);
+        autoCompleteTextViewIztop = (AutoCompleteTextView) findViewById(R.id.iztopnaPostaja);
         imenaPostaj = getResources().getStringArray(R.array.postaje);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,imenaPostaj);
-        autoCompleteTextView.setAdapter(adapter2);
+        autoCompleteTextViewIztop.setAdapter(adapter2);
 
     }
 
@@ -46,14 +45,45 @@ public class UrediDestinacijo extends AppCompatActivity {
     }
 
     public void koncajDestinacijo (View view) {
+                setVstopnaPostaja(this, autoCompleteTextViewVstopna.getText().toString());
+                setIztopnaPostaja(this, autoCompleteTextViewIztop.getText().toString());
+
                 Random r = new Random();
                 int id = (r.nextInt(100)+1);    //generira random id
                 RelativeLayout layout = (RelativeLayout) findViewById(R.id.activity_main);
                 Button createdButton = new Button(this);
-                createdButton.setText("Ljubljana-Maribor");
+                //createdButton.setText("Ljubljana - Maribor (test input)");
+                createdButton.setText(getVstopnaPostaja(this) + " - " + getIztopnaPostaja(this));
                 createdButton.setId(id);
                 layout.addView(createdButton);
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+    }
+
+    public static void setVstopnaPostaja(Context context, String vstopnaPostaja) {
+        SharedPreferences prefs = context.getSharedPreferences("autoCompleteTextViewVstopna", 0);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("autoCompleteTextViewVstopna", vstopnaPostaja);
+        editor.commit();
+    }
+
+    public static String getVstopnaPostaja(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences("autoCompleteTextViewVstopna", 0);
+        return prefs.getString("autoCompleteTextViewVstopna", "");
+
+    }
+
+    public static void setIztopnaPostaja(Context context, String iztopnaPostaja) {
+        SharedPreferences prefs = context.getSharedPreferences("autoCompleteTextViewIztop", 0);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("autoCompleteTextViewIztop", iztopnaPostaja);
+        editor.commit();
+    }
+
+    public static String getIztopnaPostaja(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences("autoCompleteTextViewIztop", 0);
+        return prefs.getString("autoCompleteTextViewIztop", "");
+
     }
 }
