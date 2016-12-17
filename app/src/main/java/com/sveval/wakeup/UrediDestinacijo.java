@@ -6,9 +6,11 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
@@ -22,6 +24,7 @@ public class UrediDestinacijo extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTextViewVstopna;
     AutoCompleteTextView autoCompleteTextViewIztop;
     String[] imenaPostaj;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,22 +47,29 @@ public class UrediDestinacijo extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /*
     public void koncajDestinacijo (View view) {
-                setVstopnaPostaja(this, autoCompleteTextViewVstopna.getText().toString());
-                setIztopnaPostaja(this, autoCompleteTextViewIztop.getText().toString());
+        //setVstopnaPostaja(this, autoCompleteTextViewVstopna.getText().toString());
+        //setIztopnaPostaja(this, autoCompleteTextViewIztop.getText().toString());
 
-                Random r = new Random();
-                int id = (r.nextInt(100)+1);    //generira random id
-                RelativeLayout layout = (RelativeLayout) findViewById(R.id.activity_main);
-                Button createdButton = new Button(this);
-                //createdButton.setText("Ljubljana - Maribor (test input)");
-                createdButton.setText(getVstopnaPostaja(this) + " - " + getIztopnaPostaja(this));
-                createdButton.setId(id);
-                layout.addView(createdButton);
+        //generira random id
+        Random r = new Random();
+        int id = (r.nextInt(100)+1);
 
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.activity_main);
+        Button b = new Button(this);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+        b.setLayoutParams(params);
+        b.setText("Button");
+        layout.addView(b);
+
+
+        //pojdi na main
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
+    */
 
     public static void setVstopnaPostaja(Context context, String vstopnaPostaja) {
         SharedPreferences prefs = context.getSharedPreferences("autoCompleteTextViewVstopna", 0);
