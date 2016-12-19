@@ -24,6 +24,8 @@ public class UrediDestinacijo extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTextViewVstopna;
     AutoCompleteTextView autoCompleteTextViewIztop;
     String[] imenaPostaj;
+    public int buttonCount;
+    public LinearLayout llButtons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,16 +44,41 @@ public class UrediDestinacijo extends AppCompatActivity {
 
     }
 
-    public void getBackMain(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 
-    /*
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+
     public void koncajDestinacijo (View view) {
         //setVstopnaPostaja(this, autoCompleteTextViewVstopna.getText().toString());
         //setIztopnaPostaja(this, autoCompleteTextViewIztop.getText().toString());
-
+/*
         //generira random id
         Random r = new Random();
         int id = (r.nextInt(100)+1);
@@ -64,12 +91,31 @@ public class UrediDestinacijo extends AppCompatActivity {
         b.setText("Button");
         layout.addView(b);
 
+*/
+
+        /*Button buttonKoncaj = (Button) findViewById(R.id.buttonKoncaj);
+        buttonKoncaj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doAddButton();
+            }
+        });
+        LinearLayout llButtons = (LinearLayout) findViewById(R.id.ll_buttons);*/
+
 
         //pojdi na main
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(UrediDestinacijo.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
-    */
+
+    private void doAddButton() {
+        Button button = new Button(this);
+        button.setText("Button " + ++buttonCount);
+        button.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        llButtons.addView(button);
+    }
+
 
     public static void setVstopnaPostaja(Context context, String vstopnaPostaja) {
         SharedPreferences prefs = context.getSharedPreferences("autoCompleteTextViewVstopna", 0);
