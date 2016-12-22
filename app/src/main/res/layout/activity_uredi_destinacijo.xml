@@ -70,15 +70,4 @@
         android:id="@+id/buttonPreklici"
         android:onClick="getBackMain"/>
 
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spinnerUre"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="32dp"
-        android:id="@+id/button2"
-        android:onClick="koncajDestinacijo"/>
-
 </RelativeLayout>

@@ -20,6 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static com.sveval.wakeup.MainActivity.items;
+import static com.sveval.wakeup.MainActivity.k;
+import static com.sveval.wakeup.MainActivity.l;
+
 public class UrediDestinacijo extends AppCompatActivity {
 
     AutoCompleteTextView autoCompleteTextViewVstopna;
@@ -40,9 +44,6 @@ public class UrediDestinacijo extends AppCompatActivity {
         imenaPostaj = getResources().getStringArray(R.array.postaje);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,imenaPostaj);
         autoCompleteTextViewIztop.setAdapter(adapter2);
-
-        Button buttonTest = (Button) findViewById(R.id.button2);
-        buttonTest.setText(getVstopnaPostaja(this) + " - " + getIztopnaPostaja(this));
 
     }
 
@@ -78,45 +79,19 @@ public class UrediDestinacijo extends AppCompatActivity {
 
 
     public void koncajDestinacijo (View view) {
+        //save data
         setVstopnaPostaja(this, autoCompleteTextViewVstopna.getText().toString());
         setIztopnaPostaja(this, autoCompleteTextViewIztop.getText().toString());
-/*
-        //generira random id
-        Random r = new Random();
-        int id = (r.nextInt(100)+1);
+        //get data
+        items.add(getVstopnaPostaja(this));
+        items.add(getIztopnaPostaja(this));
 
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.activity_main);
-        Button b = new Button(this);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-        b.setLayoutParams(params);
-        b.setText("Button");
-        layout.addView(b);
+        ListView listt = (ListView) findViewById(R.id.listView);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.destination_list, R.id.buttonDestionation, items);
+        listt.setAdapter(adapter);
 
-*/
 
-        /*Button buttonKoncaj = (Button) findViewById(R.id.buttonKoncaj);
-        buttonKoncaj.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                doAddButton();
-            }
-        });
-        LinearLayout llButtons = (LinearLayout) findViewById(R.id.ll_buttons);
 
-        MainActivity.lwButtons = (ListView) findViewById(R.id.listView);
-        MainActivity.button = new Button(this);
-        MainActivity.button.setText("Button " + ++MainActivity.buttonCount);
-        MainActivity.button.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        MainActivity.lwButtons.addView(MainActivity.button);*/
-
-        Button buttonTest = (Button) findViewById(R.id.buttonDestionation);
-        buttonTest.setText(getVstopnaPostaja(this) + " - " + getIztopnaPostaja(this));
-
-        //pojdi na main
-        Intent back = new Intent(UrediDestinacijo.this, MainActivity.class);
-        //startActivity(back);
-        //finish();
     }
 
     public void goBackMain (View view) {

@@ -24,17 +24,17 @@ public class MainActivity extends AppCompatActivity {
     public static ListView lwButtons;
     public static Button button;
     private Toolbar toolbar;
-    public String[] items;
+    public static ArrayList<String> items;
+    public static int k,l;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //postavimo toolbar
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
-        String[] items = {"kckc,", "tim", "tim je drek"};
         ListView listt = (ListView) findViewById(R.id.listView);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.destination_list, R.id.buttonDestionation, items);
         listt.setAdapter(adapter);
