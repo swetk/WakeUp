@@ -70,16 +70,15 @@
         android:id="@+id/buttonPreklici"
         android:onClick="getBackMain"/>
 
-    <TextView
-        android:text="TextView"
+    <Button
+        android:text="Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewUre"
-        android:layout_alignRight="@+id/buttonPreklici"
-        android:layout_alignEnd="@+id/buttonPreklici"
-        android:layout_marginRight="11dp"
-        android:layout_marginEnd="11dp"
-        android:layout_marginTop="63dp"
-        android:id="@+id/textViewTest" />
+        android:layout_below="@+id/spinnerUre"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="32dp"
+        android:id="@+id/button2"
+        android:onClick="koncajDestinacijo"/>
 
 </RelativeLayout>

@@ -303,5 +303,6 @@
         <item>Sobota</item>
         <item>Nedelja</item>
     </string-array>
+    <string name="title_activity_maps">Map</string>
 
 </resources>

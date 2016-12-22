@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
@@ -24,8 +25,6 @@ public class UrediDestinacijo extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTextViewVstopna;
     AutoCompleteTextView autoCompleteTextViewIztop;
     String[] imenaPostaj;
-    public int buttonCount;
-    public LinearLayout llButtons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +40,9 @@ public class UrediDestinacijo extends AppCompatActivity {
         imenaPostaj = getResources().getStringArray(R.array.postaje);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,imenaPostaj);
         autoCompleteTextViewIztop.setAdapter(adapter2);
+
+        Button buttonTest = (Button) findViewById(R.id.button2);
+        buttonTest.setText(getVstopnaPostaja(this) + " - " + getIztopnaPostaja(this));
 
     }
 
@@ -76,8 +78,8 @@ public class UrediDestinacijo extends AppCompatActivity {
 
 
     public void koncajDestinacijo (View view) {
-        //setVstopnaPostaja(this, autoCompleteTextViewVstopna.getText().toString());
-        //setIztopnaPostaja(this, autoCompleteTextViewIztop.getText().toString());
+        setVstopnaPostaja(this, autoCompleteTextViewVstopna.getText().toString());
+        setIztopnaPostaja(this, autoCompleteTextViewIztop.getText().toString());
 /*
         //generira random id
         Random r = new Random();
@@ -100,20 +102,27 @@ public class UrediDestinacijo extends AppCompatActivity {
                 doAddButton();
             }
         });
-        LinearLayout llButtons = (LinearLayout) findViewById(R.id.ll_buttons);*/
+        LinearLayout llButtons = (LinearLayout) findViewById(R.id.ll_buttons);
 
+        MainActivity.lwButtons = (ListView) findViewById(R.id.listView);
+        MainActivity.button = new Button(this);
+        MainActivity.button.setText("Button " + ++MainActivity.buttonCount);
+        MainActivity.button.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        MainActivity.lwButtons.addView(MainActivity.button);*/
+
+        Button buttonTest = (Button) findViewById(R.id.buttonDestionation);
+        buttonTest.setText(getVstopnaPostaja(this) + " - " + getIztopnaPostaja(this));
 
         //pojdi na main
+        Intent back = new Intent(UrediDestinacijo.this, MainActivity.class);
+        //startActivity(back);
+        //finish();
+    }
+
+    public void goBackMain (View view) {
         Intent intent = new Intent(UrediDestinacijo.this, MainActivity.class);
         startActivity(intent);
         finish();
-    }
-
-    private void doAddButton() {
-        Button button = new Button(this);
-        button.setText("Button " + ++buttonCount);
-        button.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        llButtons.addView(button);
     }
 
 
