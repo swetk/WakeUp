@@ -23,7 +23,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".UrediDestinacijo" />
-
     </application>
 
 </manifest>
