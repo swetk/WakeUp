@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         listt = (ListView) findViewById(R.id.listView);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.destination_list, R.id.buttonDestionation, items);
         listt.setAdapter(adapter);
+
+        String i = adapter.getItem(1);
+        System.out.println(i);
     }
 
     @Override
@@ -73,12 +76,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void removeDestination(View view) {
-        TinyDB tinydb = new TinyDB(this);
-        items.remove(0);
-        tinydb.putListString("ww", items);
-        listt = (ListView) findViewById(R.id.listView);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.destination_list, R.id.buttonDestionation, items);
-        listt.setAdapter(adapter);
+
+        btn = (Button) findViewById(R.id.buttonDestionation);
+        String ees = btn.getText().toString();
+        System.out.println(ees);
+
     }
 
 }
