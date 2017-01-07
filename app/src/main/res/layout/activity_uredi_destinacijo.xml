@@ -68,6 +68,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/buttonPreklici"
-        android:onClick="getBackMain"/>
+        android:onClick="goBackMain"/>
 
 </RelativeLayout>

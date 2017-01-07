@@ -5,69 +5,31 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
-    public static ArrayList<String> items = new ArrayList<>();
-    public static ListView listt;
-    Button btn;
     private Toolbar toolbar;
+    public static TinyDB tinydb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //postavimo toolbar
-        toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TinyDB tinydb = new TinyDB(this);
-        items = tinydb.getListString("ww");
-
-        System.out.println(items);
-
-        listt = (ListView) findViewById(R.id.listView);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.destination_list, R.id.buttonDestionation, items);
-        listt.setAdapter(adapter);
-
-        String i = adapter.getItem(1);
-        System.out.println(i);
+        tinydb = new TinyDB(this);
+        System.out.println("zagon onCreate");
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //llButtons.bringToFront();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void populateDestinationList() {
+        ArrayList<Destination> arrayDestination = Destination.getDestinations();
+        DestinationsAdapter adapter = new DestinationsAdapter(this, arrayDestination);
+        ListView listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(adapter);
     }
 
     public void newDestination(View view) {
@@ -75,13 +37,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void removeDestination(View view) {
-
-        btn = (Button) findViewById(R.id.buttonDestionation);
-        String ees = btn.getText().toString();
-        System.out.println(ees);
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        System.out.println("zagon onResume");
+        populateDestinationList();
     }
-
 }
 
