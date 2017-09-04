@@ -1,5 +1,6 @@
 package com.sveval.wakeup;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,9 +60,7 @@ public class DestinationsAdapter extends ArrayAdapter<Destination> {
                 System.out.println("position " + position);
                 Toast.makeText(getContext(),  "Destination removed",
                         Toast.LENGTH_LONG).show();
-                //Destination.destinations.remove(position);
-                MainActivity cc = new MainActivity();
-                cc.populateDestinationList();
+                Destination.destinations.remove(position);
             }
         });
 

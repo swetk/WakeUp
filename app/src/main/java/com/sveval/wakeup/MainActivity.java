@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         DestinationsAdapter adapter = new DestinationsAdapter(this, arrayDestination);
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
     public void newDestination(View view) {
@@ -42,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         System.out.println("zagon onResume");
         populateDestinationList();
+    }
+
+    public void removeDestination(View v) {
+        populateDestinationList();
+        System.out.println("eeeeeeee");
     }
 }
 
