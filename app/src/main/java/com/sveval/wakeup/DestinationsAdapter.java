@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -27,6 +28,14 @@ public class DestinationsAdapter extends ArrayAdapter<Destination> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.destination_list, parent, false);
         }
+
+        TextView textVstop = (TextView) convertView.findViewById(R.id.twVstop);
+        textVstop.setText("Start: " + destination.vstop);
+
+        TextView textIztop = (TextView) convertView.findViewById(R.id.twIztop);
+        textIztop.setText("Cilj: " + destination.iztop);
+
+        /*
         Button btnDestination = (Button) convertView.findViewById(R.id.buttonDestionation);
         btnDestination.setText(destination.vstop + " - " + destination.iztop);
         btnDestination.setOnClickListener(new View.OnClickListener() {
@@ -39,6 +48,7 @@ public class DestinationsAdapter extends ArrayAdapter<Destination> {
                 System.out.println(eee);
             }
         });
+        */
 
         Switch switchOnOff = (Switch) convertView.findViewById(R.id.switchOnOff);
         switchOnOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -53,6 +63,7 @@ public class DestinationsAdapter extends ArrayAdapter<Destination> {
             }
         });
 
+        /*
         ImageButton imgButtonDelete = (ImageButton) convertView.findViewById(R.id.imgButtonDelete);
         imgButtonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +74,7 @@ public class DestinationsAdapter extends ArrayAdapter<Destination> {
                 Destination.destinations.remove(position);
             }
         });
+        */
 
         return convertView;
     }
